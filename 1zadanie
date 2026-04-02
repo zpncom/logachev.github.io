@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script>
+	function calcmin(a,b) {
+		if (a < b) {
+			return a;
+		} else {
+			return b;
+		}
+	}	
+
+	console.log(calcmin(5, 10));
+	alert(calcmin(5, 10));
+	</script>
+</body>
+</html>
