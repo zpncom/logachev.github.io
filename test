@@ -1,0 +1,60 @@
+<style>
+    body {
+        font-family: 'Tahoma', sans-serif; [span_7](start_span)/* Изменяем шрифт[span_7](end_span) */
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 50px;
+    }
+    .resume-card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px; /* Скругленные углы */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); [span_8](start_span)/* Тень[span_8](end_span) */
+        display: inline-block;
+        border: 2px solid #333; [span_9](start_span)/* Рамка[span_9](end_span) */
+    }
+    img {
+        width: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+    h1 {
+        color: #2c3e50; [span_10](start_span)/* Цвет текста[span_10](end_span) */
+    }
+    button {
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background 0.3s; /* Плавность для наведения */
+    }
+    button:hover {
+        background-color: #3498db; [span_11](start_span)/* Изменение цвета при наведении[span_11](end_span) */
+        color: white;
+    }
+</style>
+
+
+
+
+
+
+<div class="resume-card">
+    <img src="https://via.placeholder.com/150" alt="Мое фото">
+    <h1>Владислав <span id="lastName">Логачев</span></h1>
+    
+    <p>Студент МГТУ "СТАНКИН"</p>
+
+    <input type="text" id="newLastName" placeholder="Введите новую фамилию">
+    <button onclick="changeName()">Изменить фамилию</button>
+</div>
+
+<script>
+    [span_12](start_span)// Функция для изменения фамилии[span_12](end_span)
+    function changeName() {
+        var input = document.getElementById("newLastName");
+        var lastNameSpan = document.getElementById("lastName");
+        
+        if (input.value.trim() !== "") {
+            lastNameSpan.innerText = input.value;
+        }
+    }
+</script>
