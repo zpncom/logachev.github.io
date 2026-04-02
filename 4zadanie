@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        .resume-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3498db;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s; [span_8](start_span)
+        }
+
+        button:hover {
+            background-color: #2980b9; [span_9](start_span)
+            transform: scale(1.05);
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        body.dark-mode .resume-card {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: white;
+        }
+
+        body.dark-mode h1 { color: #3498db; }
+    </style>
+</head>
+<body>
+
+    <div class="resume-card">
+        <img src="photo.jpg" alt="Владислав Логачев">
+        
+        <h1>Владислав <span id="lastName">Логачев</span></h1>
+        <p class="university">Студент МГТУ "СТАНКИН"</p>
+
+        <hr>
+
+        <input type="text" id="newLastName" placeholder="Введите новую фамилию">
+        <button onclick="changeName()">Изменить фамилию</button>
+        
+        <br>
+        
+        <button onclick="setRandomColor()">Рандомный фон</button>
+        <button onclick="toggleDarkMode()">🌙 Режим</button>
+    </div>
+
+    <script>
+        function changeName() {
+            var input = document.getElementById("newLastName");
+            var display = document.getElementById("lastName");
+            if (input.value.trim() !== "") {
+                display.innerText = input.value;
+            }
+        }
+
+        function setRandomColor() {
+            var color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = color;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
