@@ -510,3 +510,508 @@
 </html>
 
 
+
+
+
+
+
+
+
+
+
+
+---------
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Логачев Владислав | Резюме</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Секции с анимацией появления */
+        section {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideUp 0.6s forwards;
+        }
+
+        @keyframes fadeSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* задержки для красоты */
+        section:nth-child(1) { animation-delay: 0.05s; }
+        section:nth-child(2) { animation-delay: 0.15s; }
+        section:nth-child(3) { animation-delay: 0.25s; }
+        section:nth-child(4) { animation-delay: 0.35s; }
+        section:nth-child(5) { animation-delay: 0.45s; }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e2a3e, #2c5364);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #0f2b3d;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c7da0;
+            margin-top: 0.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Шапка резюме */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .hero-info {
+            flex: 2;
+        }
+        .hero-info .title {
+            font-size: 1.2rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+        .hero-info .desc {
+            margin-top: 0.8rem;
+            color: #2c3e50;
+        }
+        .hero-photo {
+            flex: 1;
+            text-align: center;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(145deg, #d9e2e8, #cbd8e4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .avatar:hover {
+            transform: scale(1.02);
+        }
+
+        /* Стили для опыта — выезжающие описания */
+        .job-item {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .job-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .job-title {
+            font-size: 1.2rem;
+            color: #0f2b3d;
+        }
+        .job-date {
+            color: #5a7b8c;
+            font-size: 0.85rem;
+            font-weight: normal;
+        }
+        .job-desc {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, margin-top 0.2s;
+            background: #ffffff;
+            border-radius: 14px;
+            margin-top: 0;
+            padding: 0 1rem;
+            color: #2d4a5e;
+        }
+        .job-item.active .job-desc {
+            max-height: 180px;
+            margin-top: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: #ffffff;
+            border-left: 3px solid #2c7da0;
+        }
+
+        /* Раскрывающийся список для образования */
+        details {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        summary {
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: #1e2a3e;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::before {
+            content: "📘";
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+        details[open] summary::before {
+            content: "📖";
+        }
+        .edu-detail {
+            margin-top: 0.8rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid #bdd4df;
+        }
+
+        /* Таблица навыков */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+        .skill-card {
+            background: #eef2f5;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .skill-card:hover {
+            background: #2c7da0;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Кнопки */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0 1rem;
+        }
+        .btn {
+            background: white;
+            border: 1.5px solid #2c7da0;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            color: #1e2a3e;
+        }
+        .btn-primary {
+            background: #2c7da0;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #1f5e7a;
+            transform: translateY(-2px);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+
+        /* форма */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 28px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2c7da0;
+            box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
+        }
+        .error-msg {
+            color: #d9534f;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            color: #5a7b8c;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            section {
+                padding: 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .avatar {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Секция: краткая информация -->
+    <section>
+        <div class="hero">
+            <div class="hero-info">
+                <h1>Логачев Владислав</h1>
+                <div class="title">Frontend-разработчик • 3 курс, МГТУ СТАНКИН</div>
+                <div class="desc">
+                    Увлекаюсь веб-технологиями, создаю адаптивные и интерактивные интерфейсы. 
+                    Люблю чистый код, минимализм и современный подход. Постоянно учусь новому 
+                    и применяю это в проектах.
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="avatar">👨‍💻</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: опыт работы (выезжающие описания по клику) -->
+    <section>
+        <h2>💼 Опыт работы</h2>
+        <div class="job-item" id="job1">
+            <div class="job-header">
+                <span class="job-title">Стажёр-разработчик</span>
+                <span class="job-date">2024 — н.в.</span>
+            </div>
+            <div class="job-company">IT Лаборатория СТАНКИН</div>
+            <div class="job-desc">
+                Разработка внутренних веб-инструментов, верстка модулей для учебных порталов, 
+                оптимизация фронтенда, работа с Git, код-ревью.
+            </div>
+        </div>
+        <div class="job-item" id="job2">
+            <div class="job-header">
+                <span class="job-title">Freelance верстальщик</span>
+                <span class="job-date">2023 — 2024</span>
+            </div>
+            <div class="job-company">Удалённо / Проекты</div>
+            <div class="job-desc">
+                Создание лендингов, адаптивных сайтов для малого бизнеса, интеграция форм, 
+                анимаций, pixel perfect верстка по макетам Figma.
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: образование с раскрывающимися списками -->
+    <section>
+        <h2>🎓 Образование</h2>
+        <details>
+            <summary>МГТУ СТАНКИН (бакалавриат)</summary>
+            <div class="edu-detail">
+                <strong>Направление:</strong> Информатика и вычислительная техника<br>
+                <strong>Годы:</strong> 2022 – 2026 (3 курс)<br>
+                <strong>Основные дисциплины:</strong> Веб-технологии, Базы данных, Алгоритмы, ООП.
+            </div>
+        </details>
+        <details>
+            <summary>Дополнительные курсы</summary>
+            <div class="edu-detail">
+                • "Современный JavaScript" – онлайн-интенсив<br>
+                • "HTML/CSS. Адаптивная вёрстка" – Яндекс Практикум<br>
+                • "React для начинающих" – Stepik
+            </div>
+        </details>
+    </section>
+
+    <!-- Секция: Навыки (таблица/сетка) -->
+    <section>
+        <h2>🧠 Навыки</h2>
+        <div class="skills-grid">
+            <div class="skill-card">HTML5 / CSS3</div>
+            <div class="skill-card">JavaScript (ES6+)</div>
+            <div class="skill-card">React (базовый)</div>
+            <div class="skill-card">Git / GitHub</div>
+            <div class="skill-card">Адаптивная вёрстка</div>
+            <div class="skill-card">Figma → код</div>
+            <div class="skill-card">Командная работа</div>
+            <div class="skill-card">Аналитическое мышление</div>
+        </div>
+    </section>
+
+    <!-- Кнопки + форма обратной связи -->
+    <section>
+        <h2>📬 Связаться со мной</h2>
+        <div class="btn-group">
+            <button class="btn btn-primary" id="downloadResumeBtn">📄 Скачать резюме (PDF)</button>
+            <button class="btn" id="contactScrollBtn">✉️ Прокрутить к форме</button>
+        </div>
+
+        <div id="contactForm">
+            <div class="form-group">
+                <input type="text" id="nameInput" placeholder="Ваше имя" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="email" id="emailInput" placeholder="Email для ответа">
+            </div>
+            <div class="form-group">
+                <textarea rows="3" id="msgInput" placeholder="Сообщение..."></textarea>
+            </div>
+            <div class="error-msg" id="formError">Заполните имя, email и сообщение (email должен содержать @)</div>
+            <button class="btn btn-primary" id="submitFormBtn">Отправить сообщение</button>
+        </div>
+    </section>
+    <footer>
+        🌐 Логачев Владислав | 2025 | Проект для лабораторной работы №3 (промтинг + адаптив)
+    </footer>
+</div>
+
+<script>
+    // 1. Анимация выезжающих описаний (клик по блоку опыта)
+    const jobItems = document.querySelectorAll('.job-item');
+    jobItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // чтобы не мешать внутренним кликам
+            e.stopPropagation();
+            this.classList.toggle('active');
+        });
+    });
+
+    // 2. Кнопка "Скачать резюме" (имитация PDF)
+    const downloadBtn = document.getElementById('downloadResumeBtn');
+    downloadBtn.addEventListener('click', () => {
+        alert("Функция скачивания PDF-версии резюме. В реальном проекте здесь был бы файл.\nЛогачев Владислав — разработчик, готов к сотрудничеству!");
+        // можно создать заглушку: открыть новое окно или сгенерировать визитку
+    });
+
+    // 3. Плавный скролл к форме
+    const contactScrollBtn = document.getElementById('contactScrollBtn');
+    const contactSection = document.querySelector('#contactForm');
+    contactScrollBtn.addEventListener('click', () => {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // 4. Валидация формы с выводом сообщения
+    const submitBtn = document.getElementById('submitFormBtn');
+    const errorSpan = document.getElementById('formError');
+    const nameField = document.getElementById('nameInput');
+    const emailField = document.getElementById('emailInput');
+    const msgField = document.getElementById('msgInput');
+
+    function validateForm() {
+        let nameVal = nameField.value.trim();
+        let emailVal = emailField.value.trim();
+        let msgVal = msgField.value.trim();
+
+        if (!nameVal || !emailVal || !msgVal) {
+            errorSpan.style.display = 'block';
+            errorSpan.textContent = "❌ Заполните все поля (имя, email, сообщение)";
+            return false;
+        }
+        if (!emailVal.includes('@') || !emailVal.includes('.')) {
+            errorSpan.style.display = 'block';
+            errorSpan.textContent = "❌ Введите корректный email (с символом @)";
+            return false;
+        }
+        errorSpan.style.display = 'none';
+        return true;
+    }
+
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            alert(`Спасибо, ${nameField.value.trim()}! Я (Владислав) свяжусь с вами в ближайшее время.`);
+            // Очистка полей (по желанию)
+            nameField.value = '';
+            emailField.value = '';
+            msgField.value = '';
+        }
+    });
+
+    // Дополнительно: hover-эффекты и активные ссылки уже в CSS
+    // Также делаем, чтобы при загрузке окна все секции появились плавно
+    window.addEventListener('DOMContentLoaded', () => {
+        // маленький бонус: первая секция активна — но анимация уже есть
+        console.log("Адаптивное резюме загружено — Владислав Логачев, СТАНКИН 3 курс");
+    });
+</script>
+</body>
+</html>
+
+
