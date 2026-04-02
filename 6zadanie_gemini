@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме | Владислав Логачев</title>
+    <style>
+        /* --- ПЕРЕМЕННЫЕ И БАЗОВЫЕ СТИЛИ --- */
+        :root {
+            --primary-color: #3498db;
+            --dark-bg: #2c3e50;
+            --light-bg: #f8f9fa;
+            --text-main: #333;
+            --transition: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--light-bg);
+            margin: 0;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* --- АНИМАЦИЯ ПОЯВЛЕНИЯ --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- ШАПКА --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* --- СЕКЦИИ --- */
+        section { margin-bottom: 50px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; color: var(--dark-bg); }
+
+       /* --- ТАБЛИЦА (Опыт работы) --- */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { background-color: #f2f2f2; }
+
+        /* --- СЕТКА НАВЫКОВ (Grid) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .skill-item {
+            background: var(--light-bg);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+
+       /* --- ФОРМА ОБРАТНОЙ СВЯЗИ --- */
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 6px; width: 100%; }
+        .error { color: red; font-size: 0.8em; display: none; }
+
+        .btn-main {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        .btn-main:hover { background: #2980b9; transform: translateY(-2px); }
+
+       /* --- АДАПТИВНОСТЬ (Media Queries) --- */
+        @media (max-width: 600px) {
+            header { padding: 30px 10px; }
+            table, thead, tbody, th, td, tr { display: block; }
+            th { position: absolute; top: -9999px; }
+            td { border: none; position: relative; padding-left: 50%; }
+            td:before { content: attr(data-label); position: absolute; left: 10px; font-weight: bold; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="photo.jpg" alt="Владислав Логачев" class="profile-img">
+        <h1>Владислав Логачев</h1>
+        <p>Студент 3 курса МГТУ "СТАНКИН" | Начинающий разработчик</p>
+        <button class="btn-main" onclick="window.location.href='#contact'">Связаться со мной</button>
+        <button class="btn-main" style="background: #95a5a6;" onclick="alert('Файл резюме скачивается...')">Скачать PDF</button>
+    </header>
+
+    <div class="container">
+        <section class="reveal">
+            <h2>О себе</h2>
+            <p>Учусь в МГТУ "СТАНКИН". Активно изучаю веб-технологии, базы данных и системное программирование. Интересуюсь историей видеокарт и современным «железом».</p>
+        </section>
+
+        <section class="reveal">
+            <h2>Опыт и Проекты</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Год</th>
+                        <th>Проект</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Год">2025</td>
+                        <td>База данных вокзала</td>
+                        <td>Разработка БД "Камера хранения".</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Год">2025</td>
+                        <td>Физический движок</td>
+                        <td>Приложение на C# с взаимодействующими объектами.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="reveal">
+            <h2>Навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-item">C++ / MFC</div>
+                <div class="skill-item">C# / WinForms</div>
+                <div class="skill-item">HTML5 / CSS3</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">SQL / Databases</div>
+                <div class="skill-item">English (B1)</div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <h2>Связаться со мной</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Ваше имя">
+                <span id="nameError" class="error">Введите имя (только буквы)</span>
+                
+                <input type="email" id="email" placeholder="Ваш Email">
+                <span id="emailError" class="error">Введите корректный email</span>
+                
+                <textarea id="message" rows="4" placeholder="Ваше сообщение"></textarea>
+                <button type="submit" class="btn-main">Отправить сообщение</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        [span_9](start_span)// 2. ВАЛИДАЦИЯ ФОРМЫ[span_9](end_span)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (name.length < 2) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+            }
+
+            if (!email.includes('@')) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+
+            if (isValid) {
+                alert('Спасибо, ' + name + '! Ваше сообщение (условно) отправлено.');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
