@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script>
+	var age;
+	var isConfirmed = false;
+	
+	while (!isConfirmed) {
+		age = prompt("Сколько вам лет?");
+		if (age != null) {
+			isConfirmed = confirm("Вы уверены, что вам " + age + "?");
+		} else {
+			alert("Введите возраст");
+		}
+	}
+
+	alert("Возраст подтвержден: " + age);
+	</script>
+</body>
+</html>
